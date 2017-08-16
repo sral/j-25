@@ -1,0 +1,8 @@
+[package]
+name = "starfield"
+version = "0.1.0"
+authors = ["Lars Djerf <lars.djerf@gmail.com>"]
+
+[dependencies]
+ rand = "0.3"
+ sdl2 = "0.30.0"
