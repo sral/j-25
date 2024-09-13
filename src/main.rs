@@ -3,7 +3,8 @@ extern crate sdl2;
 
 use std::f32;
 
-use rand::{Rng, ThreadRng};
+use rand::Rng;
+use rand::rngs::ThreadRng;
 
 use sdl2::pixels::Color;
 use sdl2::rect::Point;
@@ -93,7 +94,7 @@ fn main() {
         canvas.clear();
 
         for star in &mut stars {
-            let offset = sin_lut[(star.position.x as usize) & LUT_RESOLUTION - 1] * star.velocity.x * 75.0;
+            let offset = sin_lut[(star.position.x as usize) & (LUT_RESOLUTION - 1)] * star.velocity.x * 75.0;
             let y = star.position.y + offset;
 
             canvas.set_draw_color(Color::RGB(star.color, star.color, star.color));
