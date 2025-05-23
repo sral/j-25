@@ -59,6 +59,7 @@ fn generate_sin_lut() -> Vec<f32> {
     let mut lut: Vec<f32> = vec![0.0; LUT_RESOLUTION];
     let step: f32 = (f32::consts::PI * 2.0) / LUT_RESOLUTION as f32;
     let mut a: f32 = 0.0;
+    #[allow(clippy::needless_range_loop)]
     for i in 0..LUT_RESOLUTION {
         lut[i] = a.sin();
         a += step;
