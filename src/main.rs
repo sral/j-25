@@ -3,13 +3,13 @@ extern crate sdl2;
 
 use std::f32;
 
-use rand::Rng;
 use rand::rngs::ThreadRng;
+use rand::Rng;
 
-use sdl2::pixels::Color;
-use sdl2::rect::Point;
 use sdl2::event::Event;
 use sdl2::keyboard::Keycode;
+use sdl2::pixels::Color;
+use sdl2::rect::Point;
 
 mod vector;
 
@@ -85,8 +85,11 @@ fn main() {
     'mainloop: loop {
         for event in event_pump.poll_iter() {
             match event {
-                Event::Quit { .. } |
-                Event::KeyDown { keycode: Some(Keycode::Escape), .. } => break 'mainloop,
+                Event::Quit { .. }
+                | Event::KeyDown {
+                    keycode: Some(Keycode::Escape),
+                    ..
+                } => break 'mainloop,
                 _ => {}
             }
         }
@@ -95,7 +98,8 @@ fn main() {
         canvas.clear();
 
         for star in &mut stars {
-            let offset = sin_lut[(star.position.x as usize) & (LUT_RESOLUTION - 1)] * star.velocity.x * 75.0;
+            let offset =
+                sin_lut[(star.position.x as usize) & (LUT_RESOLUTION - 1)] * star.velocity.x * 75.0;
             let y = star.position.y + offset;
 
             canvas.set_draw_color(Color::RGB(star.color, star.color, star.color));
