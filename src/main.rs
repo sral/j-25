@@ -29,9 +29,9 @@ struct Star {
 
 impl Star {
     fn randomize(&mut self, rng: &mut ThreadRng) {
-        self.position.x = rng.gen::<f32>() * SCREEN_WIDTH as f32 + SCREEN_WIDTH as f32;
-        self.position.y = rng.gen::<f32>() * SCREEN_HEIGHT as f32;
-        self.velocity.x = -rng.gen::<f32>();
+        self.position.x = rng.random::<f32>() * SCREEN_WIDTH as f32 + SCREEN_WIDTH as f32;
+        self.position.y = rng.random::<f32>() * SCREEN_HEIGHT as f32;
+        self.velocity.x = -rng.random::<f32>();
         self.color = (-self.velocity.x * 255.0) as u8;
     }
 
@@ -78,7 +78,7 @@ fn main() {
     let mut canvas = window.into_canvas().present_vsync().build().unwrap();
     let mut event_pump = sdl_context.event_pump().unwrap();
 
-    let mut rng = rand::thread_rng();
+    let mut rng = rand::rng();
     let sin_lut = generate_sin_lut();
     let mut stars = generate_stars(&mut rng);
 
