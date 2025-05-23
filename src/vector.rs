@@ -24,7 +24,7 @@ impl Vec2d {
             y: self.y * factor,
         }
     }
-    
+
     #[allow(dead_code)]
     pub fn normalize(&self) -> Vec2d {
         let m = 1.0 / self.magnitude();
