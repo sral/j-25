@@ -7,21 +7,25 @@ pub struct Vec2d {
 }
 
 impl Vec2d {
+    #[allow(dead_code)]
     pub fn dot(self, other: Vec2d) -> f32 {
         self.x * other.x + self.y * other.y
     }
 
+    #[allow(dead_code)]
     pub fn magnitude(&self) -> f32 {
         (self.x * self.x + self.y * self.y).sqrt()
     }
 
+    #[allow(dead_code)]
     pub fn scale(self, factor: f32) -> Vec2d {
         Vec2d {
             x: self.x * factor,
             y: self.y * factor,
         }
     }
-
+    
+    #[allow(dead_code)]
     pub fn normalize(&self) -> Vec2d {
         let m = 1.0 / self.magnitude();
         self.scale(m)
