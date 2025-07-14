@@ -5,4 +5,4 @@ authors = ["Lars Djerf <lars.djerf@gmail.com>"]
 
 [dependencies]
  rand = "0.9"
- sdl2 = "0.37.0"
+ sdl2 = "0.38.0"
